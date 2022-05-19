@@ -28,12 +28,12 @@
               {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="">Profile</a></li>
+              <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
               @if (Auth::user()->type==1)
               <li><a class="dropdown-item" href="">Person</a></li>
               @endif
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="">Logout</a></li>
+              <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
             </ul>
           </li>
          @else

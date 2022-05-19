@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,8 @@ Route::get('/', function () {
     return view('home', $data);
 })->name("home")->middleware("auth");
 
+Route::get("profile", [UserController::class, "profile"])->name("profile")->middleware("auth");
+Route::post("profile", [UserController::class, "profileUpdate"])->name("profile_update");
 
 Route::get("login", [UserController::class, "login"])->name("login");
 Route::post("login", [UserController::class, "login_action"])->name("login_action");

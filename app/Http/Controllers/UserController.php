@@ -2,11 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoreRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    // Profile
+    public function profile()
+    {
+        $data["title"] = "Profile";
+        $data["user"] = User::find(Auth::id());
+        return view("profile", $data);
+    }
+    public function profileUpdate(UserStoreRequest $request)
+    {
+        User::find(Auth::id())->update([
+            "name" => $request->name,
+            "surname" => $request->surname,
+            "email" => $request->email,
+            "birth_date" => $request->birth_date,
+            "password" => Hash::make($request->password),
+        ]);
+
+        $request->session()->regenerate();
+        return back()->with("success", "Successfully updated.");
+    }
+
     /**
      * Display a listing of the resource.
      *
