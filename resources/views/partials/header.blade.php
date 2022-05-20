@@ -30,7 +30,8 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
               @if (Auth::user()->type==1)
-              <li><a class="dropdown-item" href="">Person</a></li>
+              <li><a class="dropdown-item" href="">Teachers</a></li>
+              <li><a class="dropdown-item" href="">Students</a></li>
               @endif
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
