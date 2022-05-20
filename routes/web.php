@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -28,3 +29,8 @@ Route::get("login", [UserController::class, "login"])->name("login");
 Route::post("login", [UserController::class, "login_action"])->name("login_action");
 
 Route::get("logout", [UserController::class, "logout"])->name("logout");
+
+// course
+Route::get("course", [CourseController::class, "index"])->name("course");
+Route::get("course-create", [CourseController::class, "create"])->name("course_create");
+Route::post("course-create", [CourseController::class, "store"])->name("course_store");
