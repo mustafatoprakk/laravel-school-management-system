@@ -35,18 +35,8 @@
                             <th scope="row">{{ $course->id }}</th>
                             <td>{{ $course->name }}</td>
                             <td>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <a href="{{ route('course_edit', $course->id) }}" class="btn btn-success">Edit</a>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <form action="" method="post" onsubmit="return confirm('Are you sure?')">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                <a href="{{ route('course_edit', $course->id) }}" class="btn btn-success">Edit</a>
+                                <a href="{{ route('course-delete', $course->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

@@ -36,3 +36,4 @@ Route::get("course-create", [CourseController::class, "create"])->name("course_c
 Route::post("course-create", [CourseController::class, "store"])->name("course_store");
 Route::get("course-update/{id}", [CourseController::class, "edit"])->name("course_edit")->middleware("auth");
 Route::post("course-update", [CourseController::class, "update"])->name("course_update");
+Route::get("course-delete/{id}", [CourseController::class, "destroy"])->name("course-delete")->middleware("auth");
