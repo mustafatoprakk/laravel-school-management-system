@@ -40,7 +40,7 @@ class CourseController extends Controller
     public function store(CourseStoreRequest $request)
     {
         Course::create($request->validated());
-        return redirect()->route("course")->with("message","Course created");
+        return redirect()->route("course")->with("message", "Course created");
     }
 
     /**
@@ -62,7 +62,9 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        //$data["title"] = "Course Edit";
+        $course = Course::findOrFail($id);
+        return view("courses.update", compact("course"));
     }
 
     /**
@@ -72,9 +74,10 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CourseStoreRequest $request)
     {
-        //
+        Course::find($request->id)->update($request->validated());
+        return redirect()->route("course")->with("message", "Course updated");
     }
 
     /**

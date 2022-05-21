@@ -30,7 +30,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
               @if (Auth::user()->is_admin==1)
-              <li><a class="dropdown-item" href="{{ route("course") }}">Teachers</a></li>
+              <li><a class="dropdown-item" href="{{ route("course") }}">Course</a></li>
               <li><a class="dropdown-item" href="">Students</a></li>
               @endif
               <li><hr class="dropdown-divider"></li>
