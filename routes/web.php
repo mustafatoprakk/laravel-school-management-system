@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -37,3 +38,6 @@ Route::post("course-create", [CourseController::class, "store"])->name("course_s
 Route::get("course-update/{id}", [CourseController::class, "edit"])->name("course_edit")->middleware("auth");
 Route::post("course-update", [CourseController::class, "update"])->name("course_update");
 Route::get("course-delete/{id}", [CourseController::class, "destroy"])->name("course-delete")->middleware("auth");
+
+// Class
+Route::resource("/class", ClassController::class)->middleware("auth");
