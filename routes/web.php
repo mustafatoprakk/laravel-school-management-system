@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -41,3 +42,6 @@ Route::get("course-delete/{id}", [CourseController::class, "destroy"])->name("co
 
 // Class
 Route::resource("/class", ClassController::class)->middleware("auth");
+
+// Teacher
+Route::resource("/teacher", TeacherController::class)->middleware("auth");

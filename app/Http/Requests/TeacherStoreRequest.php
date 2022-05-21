@@ -29,8 +29,8 @@ class TeacherStoreRequest extends FormRequest
             "email" => ["required", "email"],
             "branch" => ["required"],
             "birth_date" => ["required", "date"],
-            "password" => ["required", "min:4"],
-            "confirm_password" => ["required", "same:password"],
+            "password" => ["nullable", "min:4"],
+            "confirm_password" => ["nullable", "same:password"],
         ];
     }
 }
