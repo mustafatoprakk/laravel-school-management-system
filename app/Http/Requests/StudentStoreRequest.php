@@ -27,11 +27,10 @@ class StudentStoreRequest extends FormRequest
             "name" => ["required"],
             "surname" => ["required"],
             "email" => ["required", "email"],
-            "class" => ["required"],
             "number" => ["required"],
             "birth_date" => ["required", "date"],
-            "password" => ["required", "min:4"],
-            "confirm_password" => ["required", "same:password"],
+            "password" => ["nullable", "min:4"],
+            "confirm_password" => ["nullable", "same:password"],
         ];
     }
 }

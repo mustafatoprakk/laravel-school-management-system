@@ -33,7 +33,7 @@
               <li><a class="dropdown-item" href="{{ route("course") }}">Course</a></li>
               <li><a class="dropdown-item" href="{{ route("class.index") }}">Class</a></li>
               <li><a class="dropdown-item" href="{{ route("teacher.index") }}">Teachers</a></li>
-              <li><a class="dropdown-item" href="">Students</a></li>
+              <li><a class="dropdown-item" href="{{ route('student.index') }}">Students</a></li>
               @endif
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>

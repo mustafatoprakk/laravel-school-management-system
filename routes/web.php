@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -45,3 +46,6 @@ Route::resource("/class", ClassController::class)->middleware("auth");
 
 // Teacher
 Route::resource("/teacher", TeacherController::class)->middleware("auth");
+
+// Student
+Route::resource('student', StudentController::class)->middleware("auth");

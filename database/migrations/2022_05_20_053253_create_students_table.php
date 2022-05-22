@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->date("birth_date");
-            $table->string("class");
-            $table->integer("number");
+            $table->integer("number")->unique();
             $table->timestamps();
         });
     }
