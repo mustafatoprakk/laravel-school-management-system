@@ -25,7 +25,9 @@
                 <thead>
                   <tr>
                     <th scope="col-1">id</th>
-                    <th scope="col-7">Name</th>
+                    <th scope="col-7">Class Name</th>
+                    <th scope="col-7">Teacher Name</th>
+                    <th scope="col-7">Students Name</th>
                     <th scope="col-4">Action</th>
                   </tr>
                 </thead>
@@ -34,12 +36,18 @@
                         <tr>
                             <th scope="row">{{ $class->id }}</th>
                             <td>{{ $class->name }}</td>
+                            <td>{{ $class->teacher->name }}</td>
+                            <td>
+                                @foreach ($class->student_id as $student)
+                                    {{ $student }}
+                                @endforeach
+                            </td>
                             <td>
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <a href="{{ route('class.edit', $class->id) }}" class="btn btn-success">Edit</a>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <form action="{{ route('class.destroy', $class->id) }}" method="post" onsubmit="return confirm('Are you sure?')">
                                             @csrf
                                             @method("DELETE")

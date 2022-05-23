@@ -14,4 +14,17 @@ class StudentClass extends Model
     protected $fillable = [
         "name", "teacher_id", "student_id"
     ];
+    protected $casts = [
+        "student_id" => "array",
+    ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
 }
