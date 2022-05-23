@@ -43,6 +43,7 @@ class StudentController extends Controller
             "email" => $request->email,
             "number" => $request->number,
             "birth_date" => $request->birth_date,
+            "class_number" => $request->class_number,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         ]);
 

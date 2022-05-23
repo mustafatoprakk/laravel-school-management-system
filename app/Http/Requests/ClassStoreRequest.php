@@ -24,7 +24,11 @@ class ClassStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ["required","min:3"],
+            "name" => ["nullable", "min:3"],
+            "teacher_name" => ["nullable"],
+            "class_number" => ["nullable"],
+            "class_letter" => ["nullable"],
+            "student_name" => ["nullable"],
         ];
     }
 }

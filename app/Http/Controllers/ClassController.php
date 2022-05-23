@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ClassStoreRequest;
+use App\Models\Student;
 use App\Models\StudentClass;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class ClassController extends Controller
@@ -15,7 +17,6 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $data["title"] = "Class";
         $data["classes"] = StudentClass::all();
         return view("class.index", $data);
     }
@@ -27,7 +28,7 @@ class ClassController extends Controller
      */
     public function create()
     {
-        $data["title"] = "Class Create";
+        $data["teachers"] = Teacher::all();
         return view("class.create", $data);
     }
 
@@ -39,7 +40,15 @@ class ClassController extends Controller
      */
     public function store(ClassStoreRequest $request)
     {
-        StudentClass::create($request->validated());
+        //$class = $request->all();
+        //$class["student_name"] = json_encode($class["student_name"]);
+        //$class["name"] = $request->class_number . " - " . $request->class_letter;
+
+        StudentClass::create([
+            "name" => $request->class_number . " - " . $request->class_letter,
+            "teacher_id" => $request->teacher_name,
+            "student_id" => json_encode($request->student_name),
+        ]);
         return redirect()->route("class.index")->with("message", "Class created");
     }
 
@@ -88,5 +97,13 @@ class ClassController extends Controller
     {
         StudentClass::findOrFail($id)->delete();
         return redirect()->back()->with("message", "Class deleted");
+    }
+
+
+    // Fetch student
+    public function fetchStudent(Request $request)
+    {
+        $data["students"] = Student::where("class_number", $request->class_number)->get();
+        return response()->json($data);
     }
 }

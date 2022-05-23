@@ -49,3 +49,6 @@ Route::resource("/teacher", TeacherController::class)->middleware("auth");
 
 // Student
 Route::resource('student', StudentController::class)->middleware("auth");
+
+// fetch student
+Route::post("fetch-student", [ClassController::class, "fetchStudent"]);
